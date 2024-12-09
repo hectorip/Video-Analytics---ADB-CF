@@ -1,55 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reproductor de Video con HTMX</title>
+    <!-- Skeleton CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
 
     <!-- HTMX -->
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 
     <style>
-        .video-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .events-panel {
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .events-list {
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        .event-item {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-        }
+      .video-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .events-panel {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      
+      .events-list {
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      
+      .event-item {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="video-container">
-        <video id="videoPlayer" controls width="100%" height="auto" hx-trigger="timeupdate every 5s, play, pause"
-            hx-post="/registrar-evento" hx-swap="beforeend" hx-target="#eventos">
-            <source src="/video.mp4" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
-        </video>
+      <video id="videoPlayer" controls width="100%" height="auto" hx-trigger="timeupdate every 5s, play, pause" hx-post="/registrar-evento" hx-swap="beforeend" hx-target="#eventos">
+        <source src="/video.mp4" type="video/mp4" />Tu navegador no soporta el elemento de video.
+      </video>
 
-        <div class="events-panel">
-            <h3>Eventos registrados:</h3>
-            <div id="eventos" class="events-list">
-                <!-- Aquí se insertarán los eventos -->
-            </div>
+      <div class="events-panel">
+        <h3>Eventos registrados:</h3>
+        <div id="eventos" class="events-list">
+          <!-- Aquí se insertarán los eventos -->
         </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
